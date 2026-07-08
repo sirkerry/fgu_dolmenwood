@@ -2,7 +2,8 @@
 
 **Author:** Kerry Harrison (sirkerry)  
 **Ruleset:** Dolmenwood  
-**Version:** 1.0
+**Version:** 1.0  
+**FG Forge Listing:** not yet published
 
 Automatically applies Advanced Effects to a combat tracker actor when an item is equipped, and removes them when it is unequipped.
 
