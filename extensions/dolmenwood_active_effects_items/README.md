@@ -1,6 +1,6 @@
 # Dolmenwood — Active Effects Items
 
-![Dolmenwood Compatible Product](forge/dolmenwood_active_effects_items.png)
+![Dolmenwood - Active Effects Items](forge/dolmenwood-aei.jpg)
 
 **Author:** Kerry Harrison (sirkerry)  
 **Ruleset:** Dolmenwood  
