@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="4.1">
+	<properties>
+		<name>Feature: Dolmenwood - Active Effects Items</name>
+		<version>1.0</version>
+		<author>Kerry Harrison (sirkerry)</author>
+		<description>Automatically applies item effects to the combat tracker when an
+item is equipped. Define effect strings on any item's Effects tab; equipping the
+item pushes those effects to the active actor, and unequipping removes them.
+Uses the Advanced Effects system already built into the Dolmenwood ruleset.</description>
+		<ruleset>
+			<name>Dolmenwood</name>
+		</ruleset>
+		<loadorder>20</loadorder>
+	</properties>
+	<base>
+		<includefile source="strings/strings.xml" />
+		<includefile source="base.xml" />
+	</base>
+</root>

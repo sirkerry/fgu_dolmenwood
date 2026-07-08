@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+
+	<!--
+		Register the item effects manager.  Watches inventorylist entries for
+		carried-state changes and applies / removes effects defined on items
+		to the combat tracker actor when the item is equipped (carried == 2).
+	-->
+	<script name="ItemEffectsManager" file="scripts/manager_item_effects.lua" />
+
+	<!-- Add an Effects tab to the item reference window. -->
+	<windowclass name="item" merge="join">
+		<tab merge="add">
+			<name>effects</name>
+			<resource>tab_other</resource>
+			<class>ref_ability_effects</class>
+			<embed />
+		</tab>
+	</windowclass>
+
+	<!--
+		Dolmenwood's record_class.xml references utility/scripts/advanced_effects_editor.lua
+		but that file is not in the pak.  FGU can't find extension files from a
+		ruleset-level script reference, so we re-declare the windowclass inline
+		using merge="join" to splice in the script.  The label field still binds
+		directly to DB, so this is functionally complete.
+	-->
+	<windowclass name="advanced_effect_editor_main" merge="join">
+		<script>
+			function onInit()
+				-- label binds directly; effect_description rebuilt by advanced_effects.lua
+			end
+		</script>
+	</windowclass>
+
+	<!--
+		Panel shown inside the Effects tab on item and ability records.
+		Uses advanced_effects_entry (already defined in record_class.xml in
+		the Dolmenwood ruleset) as the list row class.
+	-->
+	<windowclass name="ref_ability_effects">
+		<margins control="0,0,0,7" />
+		<script>
+			function onInit()
+				self.onLockModeChanged(WindowManager.getWindowReadOnlyState(self));
+			end
+			function onLockModeChanged(bReadOnly)
+				WindowManager.callSafeControlsSetVisible(self, { "effectlist_iadd" }, not bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_content_top />
+			<header_content_framed_headersimple name="advancedeffectstitle">
+				<static textres="char_abilities_label_advancedeffects" />
+			</header_content_framed_headersimple>
+			<button_iadd name="effectlist_iadd">
+				<anchored to="advancedeffectstitle" position="insidetopright" offset="-5,0" />
+				<target>effectlist</target>
+			</button_iadd>
+			<list_content_alternating_top name="effectlist">
+				<datasource>.effectlist</datasource>
+				<class>advanced_effects_entry</class>
+			</list_content_alternating_top>
+		</sheetdata>
+	</windowclass>
+
+</root>

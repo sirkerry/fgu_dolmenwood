@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+	<!-- Tooltip shown on the effect string field in advanced_effects_entry rows. -->
+	<string name="item_label_effects_string_tooltip">Effect string, e.g. ATK: +1; AC: +2;</string>
+</root>
